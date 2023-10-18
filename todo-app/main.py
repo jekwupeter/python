@@ -1,4 +1,5 @@
 import sys;
+import datetime
 from functions import Add, Show, Edit, Remove, Exit;
 from auth import Login
 
@@ -12,9 +13,9 @@ validated = False;
 while(auth_limit < 3):
     auth_limit += 1;
     if not Login(name_input, password_input):       
-        password_prompt = "invalid credentials. Please try again.";
-        password_input = input(password_prompt);
+        print("invalid credentials. Please try again.\n");
         name_input = input(name_prompt);
+        password_input = input(password_prompt);
     else:
         validated = True;
         break;
@@ -24,6 +25,8 @@ if not validated:
     sys.exit();
 
 print("Hello, " + name_input.capitalize()  + "!");
+print("The time is", datetime.datetime.now());
+# .strftime("%H:%M:%S")
 
 # todo logic(add, show, exit)
 
