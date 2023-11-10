@@ -1,6 +1,6 @@
 import os
 import sys
-FILEPATH = "files/todos.txt";
+FILEPATH = "todo-app/files/todos.txt";
 
 def get_todos(path = FILEPATH):
     """returns list of to-dos in a text file"""
@@ -12,6 +12,7 @@ def write_todos( todos: list, path = FILEPATH):
     """write to-dos to a textfile"""
     with open(path, 'w') as file:
         file.writelines(todos)
+
 
 def Add( todo_list: list, path = FILEPATH):
     """Append item to to-dos"""
@@ -27,6 +28,7 @@ def Add( todo_list: list, path = FILEPATH):
             file_todos.append(todo)
                     
         write_todos(file_todos)
+        
 
 def Show(path = FILEPATH):
     """prints to-dos"""
@@ -36,7 +38,7 @@ def Show(path = FILEPATH):
 
     file_todos = get_todos()
             
-    [print(str(index) + ">",todo.capitalize().strip('\n',)) for index, todo in enumerate(file_todos, start=1)];
+    [print(str(index) + ">",todo.capitalize().strip('\n',)) for index, todo in enumerate(file_todos, start=1)]
 
 def Edit(todo_item: str, todo_index_input: int, path = FILEPATH):
     """Edits item on to-do list"""
